@@ -12,11 +12,13 @@
 <h2><b>List of persons:</b></h2>
 
 <ul class="persons">
-  <li *ngFor="let person of persons"
-      [class.selected]="person === selectedPerson"
-      (click)="onSelect(person)">
-    <span class="badge">{{person.id}}</span> {{person.name}}
+  <li *ngFor="let person of persons">
+    <!--      [class.selected]="person === selectedPerson"-->
+    <!--      (click)="onSelect(person)">-->
+    <a routerLink="/detail/{{person.id}}">
+      <span class="badge">{{person.id}}</span> {{person.name}}
+    </a>
   </li>
 </ul>
 
-<app-person-detail [person]="selectedPerson"></app-person-detail>
+<!-- <app-person-detail [person]="selectedPerson"></app-person-detail> // excluded to be aside in single page alone -->

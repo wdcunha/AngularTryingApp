@@ -17,7 +17,7 @@ export class PersonsComponent implements OnInit {
   // };
 
   persons: Person[];
-  selectedPerson: Person;
+//  selectedPerson: Person;
 
   getPersons(): void {
     // this.persons = this.personService.getPersons();
@@ -25,9 +25,11 @@ export class PersonsComponent implements OnInit {
       .subscribe(persons => this.persons = persons);
   }
 
-  onSelect(hero: Person): void {
-    this.selectedPerson = hero;
+/*
+  onSelect(person: Person): void {
+    this.selectedPerson = person;
   }
+*/
 
   ngOnInit() {
     this.getPersons();
