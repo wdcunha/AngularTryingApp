@@ -9,6 +9,16 @@
 <!--<div><span>NIF: </span>{{person.nif}}</div>-->
 <!--<div><span>Language: </span>{{person.language}}</div>-->
 
+<div>
+  <label>Person name:
+    <input #personName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(personName.value); personName.value=''">
+    add
+  </button>
+</div>
+
 <h2><b>List of persons:</b></h2>
 
 <ul class="persons">
@@ -18,6 +28,8 @@
     <a routerLink="/detail/{{person.id}}">
       <span class="badge">{{person.id}}</span> {{person.name}}
     </a>
+    <button class="delete" title="delete person"
+            (click)="delete(person)">X</button>
   </li>
 </ul>
 

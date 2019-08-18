@@ -22,9 +22,14 @@ export class PersonDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.personService.updatePerson(this.person)
+      .subscribe(() => this.goBack());
+  }
+
   constructor(
     private route: ActivatedRoute, // holds information about the route to this instance of the PersonDetailComponent
-    private personService: PersonService, // gets hero data from the remote server and use it to get the person-to-display
+    private personService: PersonService, // gets person data from the remote server and use it to get the person-to-display
     private location: Location // Angular service for interacting with the browser
   ) { }
 

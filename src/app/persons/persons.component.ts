@@ -25,6 +25,19 @@ export class PersonsComponent implements OnInit {
       .subscribe(persons => this.persons = persons);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.personService.addPerson({ name } as Person)
+      .subscribe(person => {
+        this.persons.push(person);
+      });
+  }
+
+  delete(person: Person): void {
+    this.persons = this.persons.filter(h => h !== person);
+    this.personService.deletePerson(person).subscribe();
+  }
 /*
   onSelect(person: Person): void {
     this.selectedPerson = person;
